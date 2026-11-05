@@ -1,0 +1,6 @@
+   openai-agents
+   gradio
+   ddgs
+   python-dotenv
+   requests
+   pydantic
