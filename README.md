@@ -4,7 +4,7 @@ A multi-agent research pipeline. You type a question, and four specialized AI ag
 
 Built with Python, the OpenAI Agents SDK, the Gemini API, DuckDuckGo search, Pydantic and Gradio. It runs entirely on free-tier services.
 
-![Demo screenshot](assets/demo.png)
+![Demo screenshot](assets/demo.jpg)
 
 ## How it works
 
@@ -28,6 +28,12 @@ flowchart LR
 
 A `ResearchManager` class orchestrates the pipeline in plain Python. It calls each agent with `Runner.run()`, passes the output of one step to the next, and streams status updates to the UI.
 
+### Delivered report
+
+The Email agent turns the report into a formatted HTML email and sends it to the inbox:
+
+![Email screenshot](assets/email.jpg)
+
 ## Design decisions
 
 - **Orchestration in code, not by an LLM.** Each step is a separate `Runner.run()` call, so the flow is predictable, easy to debug and easy to test one agent at a time.
@@ -50,6 +56,9 @@ A `ResearchManager` class orchestrates the pipeline in plain Python. It calls ea
 
 ```
 .
+├── assets/
+│   ├── demo.jpg          # UI screenshot
+│   └── email.jpg         # Delivered email screenshot
 ├── app.py                # Gradio UI
 ├── styles.py             # UI styling and example prompts
 ├── research_manager.py   # Orchestrates the four agents
@@ -59,7 +68,9 @@ A `ResearchManager` class orchestrates the pipeline in plain Python. It calls ea
 ├── email_agent.py        # Sends the report by email
 ├── gemini_config.py      # Gemini client and model setup
 ├── messenger.py          # Email (and optional push) helpers
-└── requirements.txt
+├── requirements.txt
+├── .gitignore
+└── README.md
 ```
 
 ## Getting started
@@ -144,4 +155,4 @@ The base agent pattern comes from Ed Donner's Udemy course, *AI Engineer Agentic
 
 **Naveen Kumar**
 GitHub: [naveenkumar-analytics](https://github.com/naveenkumar-analytics)
-LinkedIn: [add your profile link]
+LinkedIn: [https://www.linkedin.com/in/naveen-kumarofficial]
